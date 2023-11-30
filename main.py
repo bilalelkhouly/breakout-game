@@ -34,8 +34,8 @@ while game_is_on:
     screen.update()
     ball.move()
 
-    # Detect collision with horizontal walls
-    if ball.ycor() > 280 or ball.ycor() < -280:
+    # Detect collision with top wall
+    if ball.ycor() > 280:
         ball.bounce_y()
 
     # Detect collision with vertical walls
@@ -51,3 +51,4 @@ while game_is_on:
         if ball.distance(block) < 30:
             blocks.remove(block)
             block.hideturtle()
+            ball.bounce_block()
