@@ -3,6 +3,7 @@ from turtle import Screen, Turtle
 from paddle import Paddle
 from block import Block
 from ball import Ball
+from scoreboard import Scoreboard
 
 PADDLE_POSITION = (0, -250)
 BACKGROUND_COLOR = '#202020'
@@ -18,6 +19,7 @@ game_is_on = True
 
 paddle = Paddle(PADDLE_POSITION)
 ball = Ball()
+scoreboard = Scoreboard()
 
 for y in range(280, 105, -35):
     for x in range(-345, 340, 85):
@@ -52,3 +54,17 @@ while game_is_on:
             blocks.remove(block)
             block.hideturtle()
             ball.bounce_block()
+            scoreboard.increase_score()
+
+    # Detect if ball goes out of bounds
+    if ball.ycor() < -290:
+        # ball.reset_position()
+        end_game = Turtle()
+        end_game.hideturtle()
+        end_game.color("white")
+        end_game.penup()
+        end_game.goto(0, 0)
+        end_game.write("Game Over", align="center", font=("Arial", 30, "normal"))
+        game_is_on = False
+
+screen.mainloop()
