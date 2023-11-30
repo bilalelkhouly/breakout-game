@@ -25,4 +25,4 @@ class Ball(Turtle):
 
     def bounce_block(self):
         self.y_speed *= -1
-        self.moving_speed *= 0.85
+        self.moving_speed *= 0.95

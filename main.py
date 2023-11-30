@@ -67,4 +67,14 @@ while game_is_on:
         end_game.write("Game Over", align="center", font=("Arial", 30, "normal"))
         game_is_on = False
 
+    # Detect if all blocks are gone
+    if len(blocks) == 0:
+        win_game = Turtle()
+        win_game.hideturtle()
+        win_game.color("white")
+        win_game.penup()
+        win_game.goto(0, 0)
+        win_game.write("You Win!", align="center", font=("Arial", 30, "normal"))
+        game_is_on = False
+
 screen.mainloop()
